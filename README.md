@@ -1,4 +1,4 @@
-# \ud83d\udcca Investment Banking M&A Analysis Project
+# Investment Banking M&A Analysis Project
 
 ### Salesforce (CRM) Acquiring ServiceNow (NOW) - Complete Financial Analysis
 
