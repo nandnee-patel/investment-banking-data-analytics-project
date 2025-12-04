@@ -226,122 +226,18 @@ Date: ${new Date().toLocaleDateString()}
   );
 }
 
-// Component: Executive Summary
-const ExecutiveSummary = ({ data, valuation }) => {
-  if (!data) return null;
-
-  return (
-    <div className="space-y-6">
-      {/* Key Metrics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <MetricCard
-          icon={<DollarSign className="text-green-400" />}
-          title="Deal Value"
-          value={formatLargeMoney(data.transaction_overview.proposed_deal_value, 1)}
-          subtitle="Total Consideration"
-        />
-        <MetricCard
-          icon={<TrendingUp className="text-blue-400" />}
-          title="Premium"
-          value={formatPercent(data.transaction_overview.premium_to_current, 1)}
-          subtitle="Above Current Price"
-        />
-        <MetricCard
-          icon={<Target className="text-purple-400" />}
-          title="Total Synergies"
-          value={formatLargeMoney(data.financial_highlights.total_synergies, 1)}
-          subtitle="Revenue + Cost"
-        />
-        <MetricCard
-          icon={<BarChart3 className={data.financial_highlights.is_accretive ? 'text-green-400' : 'text-red-400'} />}
-          title="EPS Impact"
-          value={formatPercent(data.financial_highlights.eps_accretion_year2, 1)}
-          subtitle={data.financial_highlights.is_accretive ? 'Accretive' : 'Dilutive'}
-        />
+// Metric Card Component
+const MetricCard = ({ icon, title, value, subtitle }) => (
+  <Card className="bg-slate-800/50 border-slate-700">
+    <CardContent className="pt-6">
+      <div className="flex items-start justify-between">
+        <div>
+          <p className="text-slate-400 text-sm">{title}</p>
+          <p className="text-2xl font-bold text-white mt-2">{value}</p>
+          <p className="text-slate-500 text-xs mt-1">{subtitle}</p>
+        </div>
+        <div className="p-2 bg-slate-700/50 rounded-lg">{icon}</div>
       </div>
-
-      {/* Transaction Overview */}
-      <Card className="bg-slate-800/50 border-slate-700">
-        <CardHeader>
-          <CardTitle className="text-white">Transaction Overview</CardTitle>
-        </CardHeader>
-        <CardContent className="text-slate-300 space-y-3">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-slate-400 text-sm">Acquirer</p>
-              <p className="font-semibold">{data.transaction_overview.acquirer}</p>
-            </div>
-            <div>
-              <p className="text-slate-400 text-sm">Target</p>
-              <p className="font-semibold">{data.transaction_overview.target}</p>
-            </div>
-            <div>
-              <p className="text-slate-400 text-sm">Offer Price per Share</p>
-              <p className="font-semibold">${data.transaction_overview.offer_price_per_share.toFixed(2)}</p>
-            </div>
-            <div>
-              <p className="text-slate-400 text-sm">Deal Structure</p>
-              <p className="font-semibold">{data.transaction_overview.structure}</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Strategic Rationale */}
-      <Card className="bg-slate-800/50 border-slate-700">
-        <CardHeader>
-          <CardTitle className="text-white">Strategic Rationale</CardTitle>
-        </CardHeader>
-        <CardContent className="text-slate-300">
-          <ul className="space-y-2">
-            {data.strategic_rationale.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="text-blue-400 mt-1">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
-
-      {/* Recommendation */}
-      <Card className="bg-gradient-to-br from-green-900/30 to-blue-900/30 border-green-700">
-        <CardHeader>
-          <CardTitle className="text-white flex items-center gap-2">
-            <FileText />
-            Final Recommendation
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="text-slate-100">
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <span className="text-3xl font-bold text-green-400">{data.recommendation.action}</span>
-              <span className="text-slate-400">|</span>
-              <span className="text-xl font-semibold">Confidence: {data.recommendation.confidence}</span>
-            </div>
-            <p className="text-slate-300 leading-relaxed">{data.recommendation.rationale}</p>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Key Risks */}
-      <Card className="bg-slate-800/50 border-slate-700">
-        <CardHeader>
-          <CardTitle className="text-white">Key Risks</CardTitle>
-        </CardHeader>
-        <CardContent className="text-slate-300">
-          <ul className="space-y-2">
-            {data.key_risks.map((risk, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="text-yellow-400 mt-1">⚠</span>
-                <span>{risk}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
-    </div>
-  );
-};
-
-// Continue in next part...
+    </CardContent>
+  </Card>
+);
