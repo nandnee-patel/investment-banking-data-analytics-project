@@ -37,6 +37,11 @@ This project demonstrates full M&A analysis through a realistic acquisition scen
 | **Synergies** | $4.3B annually (Revenue: $1.6B, Cost: $2.7B) |
 | **EPS Impact** | +8.5% accretive by Year 2 |
 | **Recommendation** | **PROCEED** (High Confidence) |
+---
+
+## 💻 Tech Stack
+
+**Backend:** FastAPI, Python 3.9+, NumPy, Motor (Mon
 
 
 
@@ -45,8 +50,3 @@ This project demonstrates full M&A analysis through a realistic acquisition scen
 I am continuously learning and would greatly appreciate any suggestions to help me improve this project.
 
 CONTACT - Patelnandnee2@gmail.com
----
-
-## 💻 Tech Stack
-
-**Backend:** FastAPI, Python 3.9+, NumPy, Motor (Mon
