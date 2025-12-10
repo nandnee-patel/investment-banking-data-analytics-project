@@ -39,7 +39,9 @@ This project demonstrates full M&A analysis through a realistic acquisition scen
 | **Recommendation** | **PROCEED** (High Confidence) |
 
 💡 Feedback Welcome
+
 I am continuously learning and would greatly appreciate any suggestions to help me improve this project.
+
 CONTACT - Patelnandnee2@gmail.com
 ---
 
