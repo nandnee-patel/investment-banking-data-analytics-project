@@ -41,7 +41,7 @@ This project demonstrates full M&A analysis through a realistic acquisition scen
 
 ## 💻 Tech Stack
 
-**Backend:** FastAPI, Python 3.9+, NumPy, Motor (Mon
+**Backend:** FastAPI, Python 3.9+, NumPy, Motor
 
 
 
